@@ -28,8 +28,19 @@ between objects.  The Controller for scene1 needs
 to know how to create scene2.  If scene2's controller
 also needs to change the scene then that's even more coupling.
 
+## Sample Code
+
 This example shows a way without much coupling.
 Its a simplified version of the *Mediator Design Pattern*.
+
+The main scene shows:    
+![main scene](images/main_scene.png)
+
+when you select a game from the menu, the scene changes:
+![tic-tac-toe](images/tictactoe.png)
+
+In the TicTacToe scene, use the menu to go back to the main scene.
+You can come back again and continue playing the game.
 
 Here are the parts:
 
@@ -57,12 +68,9 @@ To run on command line:
 > java --module-path /path/to/javafx/lib --add-modules javafx.fxml,javafx.controls Main
 ```
 
-On the Main scene choose any game. In the Game scene, you can go back to main.
-You can go back to main in the middle of a game, and the game state is preserved -- come back and resume playing.
-
 ### How it Works
 
-`StageManager` in a singleton and keeps a reference to the stage.  It also keeps a reference to scenes and can show a scene on the stage.  In the `start(Stage stage)` method we do:
+`StageManager` in a singleton and keeps a reference to the stage.  It also keeps a reference to scenes and can show a scene on the stage.  In Main class, `start(Stage stage)` method we do:
 
 ```java
 StageManager.getInstance().setStage(stage);
