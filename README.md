@@ -60,8 +60,13 @@ To compile everything into a `bin/` directory:
 ```
 > mkdir bin
 > cd src
-> javac -d ../bin -cp /path/to/javafx/lib/*:. Main.java
+> javac -d ../bin -cp /path/to/javafx/lib/*:. Main.java util/*.java guessinggame/*.java tictactoe/*.java
+# Copy the fxml files, too
+> cp main.fxml ../bin
+> cp guessinggame/*.fxml ../bin/guessinggame/
+> cp tictactoe/*.fxml ../bin/tictactoe/
 ```
+(its easier if you use an IDE. The IDE should automatically copy fxml files to bin.)
 
 To run on command line: 
 
